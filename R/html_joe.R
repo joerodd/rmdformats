@@ -87,7 +87,7 @@ html_dependency_magnific_popup <- function() {
 
 # html_clean js and css
 html_dependency_joe <- function() {
-  htmltools::htmlDependency(name = "clean",
+  htmltools::htmlDependency(name = "joe",
                  version = "0.1",
                  src = system.file("templates/html_joe", package="rmdformats"),
                  script = "joe.js",
