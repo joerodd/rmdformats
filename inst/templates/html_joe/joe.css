@@ -1,0 +1,758 @@
+
+
+/* Fonts */
+
+body {
+    font-family: "Gentium Basic", "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0 0 0 0;
+}
+
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Counters */
+
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+div.section {
+    /*border: 3px solid #00FF00;*/
+}
+
+div.main-container {
+  counter-reset: chapter 0;
+  counter-reset: hOne 0;
+  counter-reset: hTwo 0; 
+  counter-reset: hThree 0; 
+  counter-reset: hFour 0; 
+  counter-reset: hFive 0; 
+  counter-reset: hSix 0;  
+  counter-reset: table 0;
+  counter-reset: figure 0;
+}
+
+/* Titles */
+
+h1, h2, h3, h4, h5, h6 { 
+    font-family: "Kreon", sans-serif;
+    page-break-after: avoid;
+    color: #008888;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    /*background-color: #EEEEEE;*/
+}
+
+h1.title {
+    font-size: 45px;
+    margin-bottom: 40px;
+    border: none;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+h1 {
+    padding-bottom: 9px;
+    /*margin: 40px 0px 20px;*/
+    border-bottom: 1px solid #EEE;
+    font-size: 36px;
+}
+
+.level1{
+    counter-increment: hOne;
+}
+
+.level1 h1::before {
+  content: "" counter(hOne) ". ";
+}
+
+.level2 {
+    counter-increment: hTwo;
+}
+.section p {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    /*overflow: auto;*/
+}
+
+.section {
+    /*overflow: auto;*/
+}
+
+.level2 h2::before {
+  content: "" counter(hOne) "." counter(hTwo) ". ";
+}
+
+.level3 {
+    counter-increment: hThree;
+}
+
+.level3 h3  ::before {
+  content: "" counter(hOne) "." counter(hTwo) "." counter(hThree) ". ";
+}
+
+.level1 h1::before, .level2 h2::before, .level3 h3::before, .level4 h4::before{
+      color: #71AEAE;
+}
+
+h2 {
+    font-size: 30px;
+    /*margin: 30px 0px 15px 0px !important;*/
+}
+
+/* Images */
+
+/*img {
+    margin: 5px 10px 50px 10px;
+}*/
+
+img.image-thumb {
+    /*min-width: 200px;*/
+    /*width: 100%;*/
+    cursor: pointer;
+    display: block;
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding: 2px;*/
+}
+
+.main_float {
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFF33;
+    page-break-inside: avoid;
+}
+
+.main_float .art {
+    width: 95%;
+    max-width: 640px;
+    padding: 0 0 0 0;
+    /*background-color: #ff00ff;*/
+    display: block;
+}
+
+div.figure {
+    counter-increment: figure;
+}
+
+/*.note {
+    font-size: 0.7em;
+    color: #444;
+}*/
+
+@media print {
+    .main-container{
+        width: 250mm;
+        position: relative;
+        right: 20mm;
+    }
+    h1, h2, h3, h4, h5, h6 { 
+        max-width: 130mm    ;
+    }
+    .float_wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+        float: left;
+        clear: both;
+    }
+    .main_float {
+        width: 230mm;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section p {
+        max-width: 130mm;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 5mm;
+        padding-right: 5mm;
+    }
+    .small_float {
+        vertical-align: center;
+        display: table;
+        background-color: #EEEEEE;
+        width: 120mm;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        page-break-inside: avoid;
+    }
+    .small_float .art{
+        display: table-cell;
+        max-height: 40mm;
+        width: 58%;
+        margin: 0;
+        padding:0;
+        /*margin-right: 0;*/
+        /*overflow:auto;*/
+        float: left;
+        clear: left;
+
+    }
+    .small_float .caption{
+        font-size: 0.80em;
+        display: table-cell;
+        float: right;
+        clear: right;
+        width:38%;
+        display: block;
+        margin-top: auto;
+        margin-bottom: auto;
+        vertical-align: middle;
+        margin-right:0; 
+        margin-left:0;
+        padding:5px;
+        border-left: 2px solid #71AEAE;
+    }
+    .main_float .caption {
+        z-index: 20;
+        float: left;
+        clear:  both;
+        margin-left: auto;
+        width: 135px;
+        min-height: 50px;
+        text-align: right;
+        font-size: 0.80em;
+        margin: 0;
+        padding-left: 2mm;
+        padding-right: 2mm;
+        padding-top: 5mm;
+        padding-bottom: 5mm;
+        position: absolute;
+    }
+    .main_float .art {
+        max-width: 130mm;
+        padding-left: 3mm;
+        padding-right: 3mm;
+        border-left: 1mm solid #71AEAE;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .float_wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+        float: left;
+        clear: both;
+    }
+    .main_float {
+        width: 965px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .small_float {
+        vertical-align: right;
+        margin-left: auto;
+        margin-right: auto;
+        page-break-inside: avoid;
+    }
+    .small_float .caption {
+        z-index: 20;
+        float: right;
+        clear:  both;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 0;
+        background-color: #FFF;
+        width: 240px;
+        /*min-height: 50px;*/
+        text-align: right;
+        font-size: 0.80em;
+        padding: 5px 10px;
+        position: relative;
+        border-top: 2px solid #71AEAE;
+    }
+    .small_float .art {
+        z-index: 20;
+        float: right;
+        clear:  both;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-top:0;
+        width: 240px;
+        min-height: 50px;
+        text-align: right;
+        font-size: 0.80em;
+        padding: 5px 10px;
+        position: relative;
+        border-bottom: 2px solid #71AEAE;
+        background-color: #FFF;
+    }
+
+
+    .main_float .caption {
+        z-index: 20;
+        float: left;
+        clear:  both;
+        margin-left: auto;
+        width: 135px;
+        min-height: 50px;
+        text-align: right;
+        font-size: 0.80em;
+        margin: 0 0 1.2em 0;
+        padding: 5px 10px;
+        position: absolute;
+    }
+    .main_float .art {
+        border-left: 2px solid #71AEAE;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    div.sidebox_left {
+        float: left;
+        clear: left;
+        margin-left: auto;
+        width: 240px;
+        min-height: 50px;
+        text-align: left;
+        margin: 0 0 1.20em 0;
+        padding: 0;
+        /*background-color: #ee00FF;*/
+        border-top: 2px solid #71AEAE;
+        border-bottom: 2px solid #71AEAE;
+    }
+    div.sidebox_right {
+        float: right;
+        clear: right;
+        margin-right: auto;
+        width: 240px;
+        min-height: 50px;
+        text-align: left;
+        margin: 0 0 1.20em 0;
+        padding: 0;
+        /*background-color: #ee00FF;*/
+        border-top: 2px solid #71AEAE;
+        /*border-bottom: 2px solid #71AEAE;*/
+    }
+}
+
+@media screen and (max-width: 1019px) {
+    .small_float {
+        vertical-align: center;
+        display: table;
+        background-color: #EEEEEE;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        page-break-inside: avoid;
+    }
+    .small_float .art{
+        display: table-cell;
+        max-height: 240px;
+        width: 58%;
+        /*max-height: 100px;*/
+        margin: 0;
+        padding:0;
+        /*margin-right: 0;*/
+        /*overflow:auto;*/
+        float: left;
+        clear: left;
+
+    }
+    .small_float .caption{
+        font-size: 0.80em;
+        display: table-cell;
+        float: right;
+        clear: right;
+        width:38%;
+        display: block;
+        margin-top: auto;
+        margin-bottom: auto;
+        vertical-align: middle;
+        margin-right:0; 
+        margin-left:0;
+        padding:5px;
+        border-left: 2px solid #71AEAE;
+    }
+    .main_float .caption{
+        /*float: left;
+        clear: left;*/
+        /*margin-left: auto;*/
+/*        width: 135px;
+        min-height: 50px;*/
+        text-align: center;
+        font-size: 0.80em;
+        /*background-color: #111111;*/
+        /*margin: 0 0 1.2em 0;*/
+        /*padding: 5px 10px;*/
+        padding-top: 8px;
+    }
+    .main_float {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .main_float img {
+        /*margin-bottom: 5px;*/
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .main_float p {
+        background-color: #EEEEEE;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .main_float .art {
+        background-color: #EEEEEE;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 15px;
+    }
+    div.sidebox_left {
+        vertical-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        width: 400px;
+        text-align: left;
+        /*margin: 0 0 1.20em 0;*/
+        padding: 0;
+        /*background-color: #ee00FF;*/
+        border-top: 2px solid #71AEAE;
+        border-bottom: 2px solid #71AEAE;
+    }
+}
+
+@page:left {
+    .main-container{
+        position: relative;
+        right: -200px;
+    }
+    
+}
+
+@page:left {
+    .section p {
+        color: #00FF00;
+    }
+}
+
+div.figure .caption::before {
+  content: "Figure " counter(figure) ": ";
+  font-weight: bold;
+  color: #71AEAE;
+}
+
+img.mfp-img {
+    padding: 0px;
+    /*margin: 40px 0px;*/
+}
+
+/* Tables */
+
+table { 
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: auto !important;*/
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #CCC;
+    box-shadow: 0 0 0.5em #ddd; 
+    font-size: 0.80em;
+}
+
+.main_float table{
+    max-width: 600px;
+    /*width: 80%;*/
+}
+
+div.table {
+    counter-increment: table;
+}
+
+div.table .caption::before {
+  content: "Table " counter(table) ": ";
+  font-weight: bold;
+  color: #71AEAE;
+}
+
+table thead>tr {
+    background: #eaeaea;
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;       
+}
+
+table thead>tr>th { 
+    padding: 3px 15px !important;
+}
+
+table tbody>tr>td { 
+    padding: 3px 15px !important;
+}
+
+table tbody tr.even {
+    background: #f5f5f5;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+}
+
+table tr.odd {
+    background: #FFF;
+}
+
+table tbody tr:hover {
+    background: #e9f0fb;
+    transition: all 0.1s ease-in-out;     
+}
+
+
+.tab-content table {
+    margin-top: 0px;
+}
+
+/* Nav pills */
+
+.nav-pills {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.nav-pills > li > a {
+    padding: 3px 12px !important;
+    margin-right: 5px !important;
+}
+
+/* Chi-squared results */
+
+.chisq-results {
+    margin: -20px 0px 35px 20px;
+    font-size: 90%;
+    font-style: italic;
+}
+
+
+/* Table of contents */
+/* Source : http://projects.jga.me/toc/ */
+
+#toc {
+    height: auto;
+    width: 12%; 
+    position: fixed; 
+    background: #FFF;
+    padding: 20px 5px 20px 5px;
+    color: #777;
+    font-size: 90%;
+}
+
+#toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#toc li {
+    margin: 0 0 2px 0;
+    padding: 0;
+}
+
+#toc a {
+    color: #999;
+    text-decoration: none;
+    display: block;
+    padding: 3px 5px 3px 20px;
+}
+
+#toc ul ul li a {
+    padding: 0px 5px 0px 40px;
+    font-size: 90%;
+}
+
+#toc .tocify-focus a, #toc a:hover {
+    color: #3388E0;
+}
+
+#toc .tocify-focus a {
+    border-left: 2px solid #3388E0;
+    padding-left: 18px;
+}
+
+#toc ul ul .tocify-focus a {
+    
+}
+
+
+/* print and footnotes */
+
+.note {
+    display: prince-footnote;
+    counter-increment: footnote;
+    display: block;
+    float: left;
+    /*background-color: #EE4444;*/
+    /*clear: left;*/
+    margin: 0 0 1em -41%;
+    width: 37%;
+    font-size: 0.8em;
+    font-style: normal;
+    text-indent: 0;
+    text-align: right;
+    page-break-inside: avoid;
+}
+
+.notecall:before {
+  content: "*";
+  vertical-align: super;
+  font-size: 80%;
+}
+
+.note:before {
+  content: "*";
+  vertical-align: super;
+  color: green;
+  padding-right: 0.4em;
+}
+
+@page {
+  margin: 5mm 16mm 5mm 16mm;
+  size: 210mm 297mm;
+
+  @footnotes {
+    border-top: thin solid black;
+    padding-top: 0.3em;
+    margin-top: 0.6em;
+    margin-left: 30%;
+  }
+}
+
+
+/* define default page and names pages: cover, blank, frontmatter */
+
+@page :left {
+  @top-left {
+    font: 11pt "Gill Sans", serif;
+    content: string(author);
+    vertical-align: bottom;
+    padding-bottom: 2em;
+  }
+
+  @bottom-left {
+    font: 11pt "Gill Sans", serif;
+    content: counter(page);
+    padding-top: 2em;
+    vertical-align: top;
+  }
+}
+
+@page :right {
+  @top-right {
+    font: 11pt "Gill Sans", serif;
+    content: string(header, first); 
+    vertical-align: bottom;
+    padding-bottom: 2em; 
+  }
+
+  @bottom-right {
+    font: 11pt "Gill Sans", serif;
+    content: counter(page);
+    text-align: right;
+    vertical-align: top;
+    padding-top: 2em;
+  }
+}
+
+@page frontmatter :left {
+  @top-left {
+    font: 11pt "Gill Sans", serif;
+    content: string(title);
+    vertical-align: bottom;
+    padding-bottom: 2em;
+  }
+
+  @bottom-left {
+    font: 11pt "Gill Sans", serif;
+    content: counter(page, lower-roman);
+    padding-top: 2em;
+    vertical-align: top;
+  }
+}
+
+@page cover { margin: 0; }
+
+@page frontmatter :right {
+  @top-right {
+    font: 11pt "Gill Sans", serif;
+    content: string(header, first); 
+    vertical-align: bottom;
+    padding-bottom: 2em; 
+  }
+
+  @bottom-right {
+    font: 11pt "Gill Sans", serif;
+    content: counter(page, lower-roman);
+    text-align: right;
+    vertical-align: top;
+    padding-top: 2em;
+  }
+}
+
+@page blank :left {
+  @top-left { content: normal }
+  @bottom-left { content: normal }
+}
+
+@page blank :right {
+  @top-right { content: normal }
+  @bottom-right { content: normal }
+}
+
+/* cross-references */
+a { text-decoration: none; color: #000;}
+
+a.pageref::after { content: " on page " target-counter(attr(href), page); }
+a.chapref::before { content: " Chapter " target-counter(attr(href), chapter) ", "; }
+a.figref:before {
+ content: " Figure ";
+}
+
+
+a.figref {
+    content: target-counter(attr(href), figure);
+}
+a.tableref { content: " Table " target-counter(attr(href), figure); }
+
+/* footnotes */
+
+.footnote {
+  display: none;                   /* default rule */
+
+  display: prince-footnote;        /* prince-specific rules */
+  position: sidenote;
+  footnote-style-position: inside;
+
+  counter-increment: footnote;
+  margin-left: 1.4em;
+  font-size: 90%;
+  line-height: 1.4;
+}
+
+.footnote::footnote-call {
+  vertical-align: super;
+  font-size: 80%;
+}
+
+.footnote::footnote-marker {
+  vertical-align: super;
+  color: green;
+  padding-right: 0.4em;
+}
